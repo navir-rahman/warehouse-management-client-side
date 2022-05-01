@@ -5,7 +5,10 @@ import useSingleItem from '../../hooks/useSingleItem';
 //import './SingleItem.css';
 const SingleItem = () => {
     const { id } = useParams();
+    
+
     const [item] = useSingleItem(id);
+
     const {_id, name, vandor, pic, dis, qun } = item;
     //delivered function
     const [itemquantiry, setitemquantiry] = useState(qun);
