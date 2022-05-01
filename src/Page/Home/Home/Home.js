@@ -8,6 +8,7 @@ const Home = () => {
           
             <Slider></Slider>
             <Products></Products>
+            <button>Manage Inventories</button>
         </div>
     );
 };

@@ -8,7 +8,7 @@ const Products = () => {
     const [products, setproducts] = useState([]);
     
     useEffect(()=>{
-        fetch('productsdata.json')
+        fetch('http://localhost:5000/all')
         .then(res=>res.json())
         .then(data=>setproducts(data))
     },[])
@@ -18,7 +18,7 @@ const Products = () => {
 
             <CardGroup className='product_grid mb-5'>
             {
-                products.map(product=><Product key={product.id} product={product}></Product>)
+                products.map(product=><Product key={product._id} product={product}></Product>)
             }
             </CardGroup>
         </div>
