@@ -7,7 +7,7 @@ import Item from '../Item/Item';
 const Allitems = () => {
     const [products, setproducts] = useGetProductdata();
     return (
-        <div>
+        <div className='pageHeight'>
             {
                 products.map(item => <Item key={item._id} item={item}></Item>)
             }
