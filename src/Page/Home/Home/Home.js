@@ -1,14 +1,24 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import Imgbox from '../../ImageTextBOx/Imgbox';
+import Partner from '../../Partner/Partner';
 import Products from '../Products/Products';
 import Slider from '../Slider/Slider';
 
 const Home = () => {
     return (
         <div>
-          
+
             <Slider></Slider>
             <Products></Products>
-            <button>Manage Inventories</button>
+            <Link to={'/allitems'}>
+                <Button variant='info'>
+                    Manage Inventories
+                </Button>
+            </Link>
+            <Imgbox></Imgbox>
+            <Partner></Partner>
         </div>
     );
 };

@@ -26,7 +26,7 @@ const AddItem = () => {
         .then(res => res.json())
         .then(result =>{
             if(result){
-                e.reset()
+               
             }
         })
         .catch((error) => {

@@ -10,7 +10,7 @@ const SingleItem = (props) => {
 
     const [item] = useSingleItem(id);
 
-    const { _id, name, vandor, pic, dis, qun } = item;
+    const { _id, name,price, vandor, pic, dis, qun } = item;
     //delivered function
     const [itemquantiry, setitemquantiry] = useState(qun);
     console.log(qun);
@@ -90,7 +90,8 @@ const SingleItem = (props) => {
                     </Col>
                     <Col lg={4} md={12} sm={12} xs={12} className="body">
                         <div>
-                            <h3>{name}</h3>   <p>Supplier: {vandor}</p>
+                            <h3>{name}</h3>   
+                            <p>Price: ${price} Supplier: {vandor}  </p>
                         </div>
                         <p>{dis}</p>
 
