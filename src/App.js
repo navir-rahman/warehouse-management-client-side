@@ -13,6 +13,7 @@ import SignIn from './Page/Signin/SignIn';
 import 'react-toastify/dist/ReactToastify.css';
 import MyItem from './Page/MyItem/MyItem';
 import AddMyItem from './Page/Addmyitem/AddMyItem';
+import NotFound404 from './Page/Notfound404/NotFound404';
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
 
           <Route path="/login" element={<Login></Login>} />
           <Route path="/signup" element={<SignIn></SignIn>} />
+          <Route path="*" element={<NotFound404></NotFound404>} />
         </Routes>
       </div>
       <Footer></Footer>
