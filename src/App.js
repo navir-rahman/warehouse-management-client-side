@@ -11,6 +11,8 @@ import Login from './Page/Login/Login';
 import RequirAuth from './Page/Requirauth/RequirAuth';
 import SignIn from './Page/Signin/SignIn';
 import 'react-toastify/dist/ReactToastify.css';
+import MyItem from './Page/MyItem/MyItem';
+import AddMyItem from './Page/Addmyitem/AddMyItem';
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/myitem" element={<MyItem></MyItem>} />
 
           <Route path="/allitems" element={
             <RequirAuth>
@@ -38,6 +41,12 @@ function App() {
           <Route path="/addItem" element={
             <RequirAuth>
               <AddItem></AddItem>
+            </RequirAuth>
+
+          } />
+          <Route path="/addMyItem" element={
+            <RequirAuth>
+             <AddMyItem></AddMyItem>
             </RequirAuth>
 
           } />

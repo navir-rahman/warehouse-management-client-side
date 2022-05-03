@@ -2,15 +2,16 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 
-const AddItem = () => {
+const AddMyItem = () => {
     const [user, loading, error] = useAuthState(auth);
     console.log(user.email);
     const addItem = (e) => {
         e.preventDefault();
         const Pname = e.target.name.value;
+        const pemail = user.email;
+
 
         const pimg = e.target.image.value;
         const pdis = e.target.discription.value;
@@ -18,10 +19,10 @@ const AddItem = () => {
         const pvendor = e.target.vendor.value;
         const pPrice = e.target.price.value;
         
-        let info = { price: pPrice, pic: pimg, name: Pname, dis: pdis, qun: pquantity, vandor: pvendor }
+        let info = { price: pPrice, email:pemail, pic: pimg, name: Pname, dis: pdis, qun: pquantity, vandor: pvendor }
 
         console.log(JSON.stringify(info));
-        const url = 'http://localhost:5000/additem';
+        const url = 'http://localhost:5000/addmyitem';
         fetch(url, {
             method: 'POST',
             headers: {
@@ -47,7 +48,7 @@ const AddItem = () => {
     }
     return (
         <div className='p-5'>
-            <h2>Add new Product here</h2>
+            <h2>Add My new Product here</h2>
             <Form onSubmit={addItem}>
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label></Form.Label>
@@ -89,4 +90,5 @@ const AddItem = () => {
     );
 };
 
-export default AddItem;
+
+export default AddMyItem;

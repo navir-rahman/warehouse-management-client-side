@@ -4,12 +4,16 @@ import auth from '../../firebase.init';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import axios from 'axios';
 
 const Login = () => {
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
 //google sign in
     const googleSignin = () => {
         signInWithGoogle();
+        if(user){
+            return navigate(from, {replace: true});
+         }
     }
 
     //email sign in 
@@ -35,19 +39,23 @@ const Login = () => {
     }
 
     if(user){
-        navigate(from, {replace: true});
+       return navigate(from, {replace: true});
     }
     if (error) {
         errorElement = <p className='text-danger'>Error: {error?.message}</p>
     }
 
     //handle password signin
-    const handleSubmit = e =>{
+    const handleSubmit =async e =>{
         e.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const {data} = await axios.post('http://localhost:5000/login', {email});
+       localStorage.setItem('access_token', data.access_token)
+        e.target.reset();
+     navigate(from, {replace: true});
     }
 
 
@@ -55,6 +63,7 @@ const Login = () => {
 const navigateRegister = event => {
     navigate('/signup');
 }
+
 
     return (
         <div className='text-center pageHeight'>

@@ -28,16 +28,31 @@ const Header = () => {
                         navbarScroll
                     >
                         <Nav.Link as={Link} to={"/home"}>Home</Nav.Link>
-                        <Nav.Link as={Link} to={"/allitems"}>Inventory</Nav.Link>
+                        <Nav.Link as={Link} to={"/allitems"}>Manage Items</Nav.Link>
+
+                        {
+                            user ? <>
+                                <Nav.Link as={Link} to={"/myitem"}>My Item</Nav.Link>
+                                <Nav.Link as={Link} to={"/addMyItem"}>Add My Item</Nav.Link>
+                                <Nav.Link as={Link} to={"/addItem"}>Add My Item</Nav.Link>
+                            </>
+                            : ""
+    
+                        }
+
+
+
                     </Nav>
                     {
                         user ?
-                        <Button onClick={signout}>Sign Out</Button>
-                        :
-                        
+                            <Button onClick={signout}>Sign Out</Button>
+                            :
+
                             <Nav.Link className='btn btn-primary text-white' as={Link} to={"/login"}>Login / Sign up</Nav.Link>
-                      
+
                     }
+
+                    {/* Manage Items, Add Item, My items, Logout */}
 
                 </Navbar.Collapse>
             </Container>
