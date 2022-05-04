@@ -22,7 +22,7 @@ const AddMyItem = () => {
         let info = { price: pPrice, email:pemail, pic: pimg, name: Pname, dis: pdis, qun: pquantity, vandor: pvendor }
 
         console.log(JSON.stringify(info));
-        const url = 'http://localhost:5000/addmyitem';
+        const url = 'https://boiling-taiga-43544.herokuapp.com/addmyitem';
         fetch(url, {
             method: 'POST',
             headers: {

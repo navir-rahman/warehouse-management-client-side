@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with React App.
-See the live site here. [Create React App](https://github.com/facebook/create-react-app).
+See the live site here. [Live link](https://assignment-11-e50b7.web.app/myitem).
 
 
 ## Used Scripts and resorces

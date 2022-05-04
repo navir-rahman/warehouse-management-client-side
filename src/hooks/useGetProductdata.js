@@ -4,7 +4,7 @@ const useGetProductdata = () => {
     const [products, setproducts] = useState([]);
     
     useEffect(()=>{
-        fetch('http://localhost:5000/all')
+        fetch('https://boiling-taiga-43544.herokuapp.com/all')
         .then(res=>res.json())
         .then(data=>setproducts(data))
     },[])

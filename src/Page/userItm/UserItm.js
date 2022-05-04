@@ -17,7 +17,7 @@ const UserItm = (props) => {
         const newquantity = (itemquantiry || qun) - 1;
         if (qun > -1) {
             const info = { id: _id, quantity: newquantity }
-            fetch(`http://localhost:5000/item/userupdate/${_id}`, {
+            fetch(`https://boiling-taiga-43544.herokuapp.com/item/userupdate/${_id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const UserItm = (props) => {
         e.preventDefault();
         const quantity = e.target.quantity.value;
         const info = { id: _id, quantity: quantity }
-        fetch(`http://localhost:5000/item/userupdate/${_id}`, {
+        fetch(`https://boiling-taiga-43544.herokuapp.com/item/userupdate/${_id}`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const UserItm = (props) => {
     const deleteItem = () => {
         const confirm = window.confirm("sometext");
         if (confirm) {
-            fetch(`http://localhost:5000/useritem/delete/${_id}`, {
+            fetch(`https://boiling-taiga-43544.herokuapp.com/useritem/delete/${_id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

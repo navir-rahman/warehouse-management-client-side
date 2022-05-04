@@ -17,7 +17,7 @@ const SingleItem = () => {
         const newquantity = (itemquantiry || qun) - 1;
         if (qun > -1) {
             const info = { id: _id, quantity: newquantity }
-            fetch(`http://localhost:5000/item/update/${_id}`, {
+            fetch(`https://boiling-taiga-43544.herokuapp.com/item/update/${_id}`, {
                 method: 'POST', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const SingleItem = () => {
         e.preventDefault();
         const quantity = e.target.quantity.value;
         const info = { id: _id, quantity: quantity }
-        fetch(`http://localhost:5000/item/update/${_id}`, {
+        fetch(`https://boiling-taiga-43544.herokuapp.com/item/update/${_id}`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

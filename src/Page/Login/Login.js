@@ -53,7 +53,7 @@ const Login = () => {
         const password = passwordRef.current.value;
 
         await signInWithEmailAndPassword(email, password);
-        const {data} = await axios.post('http://localhost:5000/login', {email});
+        const {data} = await axios.post('https://boiling-taiga-43544.herokuapp.com/login', {email});
        localStorage.setItem('access_token', data.access_token)
         e.target.reset();
      navigate(from, {replace: true});

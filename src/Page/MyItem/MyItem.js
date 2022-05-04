@@ -11,13 +11,13 @@ const MyItem = () => {
 
     
     useEffect(()=>{
-        // fetch('http://localhost:5000/alluseritem')
+        // fetch('https://boiling-taiga-43544.herokuapp.com/alluseritem')
         // .then(res=>res.json())
         // .then(data=>setproducts(data))
 
         const getitems= async()=>{
             const email=user.email;
-            const url = `http://localhost:5000/alluseritem?email=${email}`;
+            const url = `https://boiling-taiga-43544.herokuapp.com/alluseritem?email=${email}`;
             console.log(url);
             const {data}= await axios.get(url,{
                 headers: {

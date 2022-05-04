@@ -1,7 +1,7 @@
 const useDeliverQuantity = (props) => {
     const data = props.info;
 
-    fetch(`http://localhost:5000/`, {
+    fetch(`https://boiling-taiga-43544.herokuapp.com/`, {
         method: 'POST', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
