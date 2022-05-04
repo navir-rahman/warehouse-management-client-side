@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
-import useGetProductdata from '../../hooks/useGetProductdata';
+
 import Item from '../Item/Item';
 const MyItem = () => {
     const [products, setproducts] = useState([]);
@@ -19,7 +19,12 @@ const MyItem = () => {
         const getitems= async()=>{
             const email=user.email;
             const url = `http://localhost:5000/alluseritem?email=${email}`;
-            const {data}= await axios.get(url);
+            console.log(url);
+            const {data}= await axios.get(url,{
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('access_token')}`
+                }
+            });
             setproducts(data)
         }
         getitems()

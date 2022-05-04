@@ -4,13 +4,13 @@ import { Link, useParams } from 'react-router-dom';
 import useSingleItem from '../../hooks/useSingleItem';
 //import './SingleItem.css';
 const SingleItem = (props) => {
+    const { _id, name,price, vandor, pic, dis, qun } = props.item;
     console.log(props);
+
     const id = props.item._id;
-
-
     const [item] = useSingleItem(id);
 
-    const { _id, name,price, vandor, pic, dis, qun } = item;
+   // const { _id, name,price, vandor, pic, dis, qun } = item;
     //delivered function
     const [itemquantiry, setitemquantiry] = useState(qun);
     console.log(qun);

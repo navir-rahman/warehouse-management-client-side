@@ -8,7 +8,7 @@ const Products = () => {
     const [products, setproducts] = useState([]);
     
     useEffect(()=>{
-        fetch('http://localhost:5000/all')
+        fetch('http://localhost:5000/sixInfo')
         .then(res=>res.json())
         .then(data=>setproducts(data))
     },[])

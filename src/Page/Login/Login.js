@@ -8,9 +8,10 @@ import axios from 'axios';
 
 const Login = () => {
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
-//google sign in
-    const googleSignin = () => {
-        signInWithGoogle();
+    //google sign in
+    const googleSignin = async () => {
+        const data= await signInWithGoogle();
+        localStorage.setItem('access_token', data.access_token)
         if(user){
             return navigate(from, {replace: true});
          }

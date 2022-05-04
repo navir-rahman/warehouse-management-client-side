@@ -8,7 +8,7 @@ const useSingleItem = (id) => {
         .then(res=>res.json())
         .then(data=>setitem(data))
 
-    },[])
+    },[id])
 
     return [item, setitem];
 
