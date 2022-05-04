@@ -3,12 +3,11 @@ import { Button, Card, Col, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import useSingleItem from '../../hooks/useSingleItem';
 //import './SingleItem.css';
-const SingleItem = (props) => {
+const UserItm = (props) => {
     const { _id, name,price, vandor, pic, dis, qun } = props.item;
     console.log(props);
 
     const id = props.item._id;
-    const [item] = useSingleItem(id);
 
    // const { _id, name,price, vandor, pic, dis, qun } = item;
     //delivered function
@@ -18,7 +17,7 @@ const SingleItem = (props) => {
         const newquantity = (itemquantiry || qun) - 1;
         if (qun > -1) {
             const info = { id: _id, quantity: newquantity }
-            fetch(`http://localhost:5000/item/update/${_id}`, {
+            fetch(`http://localhost:5000/item/userupdate/${_id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -42,7 +41,7 @@ const SingleItem = (props) => {
         e.preventDefault();
         const quantity = e.target.quantity.value;
         const info = { id: _id, quantity: quantity }
-        fetch(`http://localhost:5000/item/update/${_id}`, {
+        fetch(`http://localhost:5000/item/userupdate/${_id}`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -64,7 +63,7 @@ const SingleItem = (props) => {
     const deleteItem = () => {
         const confirm = window.confirm("sometext");
         if (confirm) {
-            fetch(`http://localhost:5000/item/delete/${_id}`, {
+            fetch(`http://localhost:5000/useritem/delete/${_id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -122,4 +121,4 @@ const SingleItem = (props) => {
     );
 };
 
-export default SingleItem;
+export default UserItm;

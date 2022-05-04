@@ -4,8 +4,7 @@ import { Button } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
-
-import Item from '../Item/Item';
+import UserItm from '../userItm/UserItm';
 const MyItem = () => {
     const [products, setproducts] = useState([]);
     const [user]=useAuthState(auth);
@@ -33,7 +32,7 @@ const MyItem = () => {
 
         <div className='pageHeight'>
             {
-                products.map(item => <Item key={item._id} item={item}></Item>)
+                products.map(item => <UserItm key={item._id} item={item}></UserItm>)
             }
             <Link to={`/addMyItem`}>
                 <Button variant="dark"> Add My Item</Button>
